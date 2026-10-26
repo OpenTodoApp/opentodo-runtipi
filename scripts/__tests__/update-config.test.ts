@@ -24,15 +24,15 @@ beforeEach(() => {
 afterEach(() => fs.rmSync(dir, { recursive: true, force: true }));
 
 test("a new OpenTodo image raises the version, tipi_version and updated_at", async () => {
-  fs.writeFileSync(path.join(dir, "docker-compose.yml"), compose("ghcr.io/pixari/opentodo:0.7.0", "busybox:1.37.0"));
-  const c = await updateAppConfig(path.join(dir, "docker-compose.yml"), "0.7.0", "ghcr.io/pixari/opentodo", 1000);
+  fs.writeFileSync(path.join(dir, "docker-compose.yml"), compose("ghcr.io/opentodoapp/opentodo:0.7.0", "busybox:1.37.0"));
+  const c = await updateAppConfig(path.join(dir, "docker-compose.yml"), "0.7.0", "ghcr.io/opentodoapp/opentodo", 1000);
   expect(c.version).toBe("0.7.0");
   expect(c.tipi_version).toBe(2);
   expect(c.updated_at).toBe(1000);
 });
 
 test("a new helper image raises tipi_version but keeps the version", async () => {
-  fs.writeFileSync(path.join(dir, "docker-compose.yml"), compose("ghcr.io/pixari/opentodo:0.6.1", "busybox:1.38.0"));
+  fs.writeFileSync(path.join(dir, "docker-compose.yml"), compose("ghcr.io/opentodoapp/opentodo:0.6.1", "busybox:1.38.0"));
   const c = await updateAppConfig(path.join(dir, "docker-compose.yml"), "1.38.0", "busybox", 1000);
   expect(c.version).toBe("0.6.1");
   expect(c.tipi_version).toBe(2);
