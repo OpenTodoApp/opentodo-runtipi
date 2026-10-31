@@ -24,7 +24,7 @@ services:
   # Runtipi creates the data folder owned by root and makes it writable only after the first
   # start, but OpenTodo runs as user 65532: hand the folder to that user before it starts.
   opentodo-init:
-    image: busybox:1.37.0
+    image: busybox:1.38.0
     command: ["chown", "-R", "65532:65532", "/data"]
     restart: "no"
     volumes:
