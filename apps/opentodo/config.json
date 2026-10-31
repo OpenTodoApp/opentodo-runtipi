@@ -5,7 +5,7 @@
   "exposable": true,
   "dynamic_config": true,
   "port": 8400,
-  "tipi_version": 20,
+  "tipi_version": 21,
   "version": "0.19.0",
   "categories": [
     "utilities"
@@ -51,6 +51,6 @@
     "amd64"
   ],
   "created_at": 1792195200000,
-  "updated_at": 1792306800000,
+  "updated_at": 1793472239081,
   "min_tipi_version": "4.7.0"
 }
